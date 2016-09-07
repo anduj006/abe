@@ -1,0 +1,60 @@
+////////////////////////////////////////////////////abe other pages
+
+<script>
+if(abe_hotelCode == "HWLON103")
+{
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-74720603-1', 'auto', 'franklin_HWLON103');
+ga('franklin_HWLON103.require', 'linker');
+ga('franklin_HWLON103.linker:autoLink', ['thefranklinlondon.com'], false, true);
+ga('franklin_HWLON103.send', 'pageview', {
+'page': abe_currentPage
+});
+}
+</script>
+
+
+////////////////////////////////////////////ABE conf page
+
+<script>
+if(abe_hotelCode  == "HWLON103")
+{
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-74720603-1', 'auto', 'franklin_HWLON103');
+ga('franklin_HWLON103.require', 'linker');
+ga('franklin_HWLON103.linker:autoLink', ['thefranklinlondon.com'], false, true);
+ga('franklin_HWLON103.send', 'pageview', {
+'page': 'Confirmation Page'
+});
+for (i=0; i < abe_reservationDetails.length; i++)
+{
+ga('franklin_HWLON103.require', 'ecommerce');
+ga('franklin_HWLON103.ecommerce:addTransaction', {
+'id': abe_reservationDetails[i]["rooms"]["reservationNumber"], // Transaction ID. Required.
+'affiliation': abe_hotelCode[i], // Affiliation or store name.
+'revenue': abe_reservationDetails[i]["rooms"]["roomTotal"], // Grand Total.
+'shipping': '', // Shipping.
+'tax': '', // Tax.
+'currency': 'GBP' // local currency code.
+});
+// addItem must be called for every item in the shopping cart
+// where your ecommerce engine loops through each item in the cart and
+// prints out addItem for each
+ga('franklin_HWLON103.ecommerce:addItem', {
+'id': abe_reservationDetails[i]["rooms"]["reservationNumber"],  // Transaction ID. Required.
+'name': abe_reservationDetails[i]["rooms"]["roomRateCode"], // Product name. Required.
+'sku': abe_reservationDetails[i]["rooms"]["roomRateCode"], // SKU/code.
+'category': abe_reservationDetails[i]["rooms"]["roomRateCode"], // Category or variation.
+'price': abe_reservationDetails[i]["rooms"]["roomTotal"], // Unit price.
+'quantity': 1 // Quantity.
+});
+ga('franklin_HWLON103.ecommerce:send');
+}
+}
+</script>
